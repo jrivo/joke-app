@@ -38,9 +38,8 @@ jobs:
     parallelism: 10
 
     steps:
-
       - attach_workspace:
-        at: ~/project/
+          at: ~/project/
 
       - restore_cache:
           name: Restore yarn Package cache
