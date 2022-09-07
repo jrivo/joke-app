@@ -9,19 +9,19 @@ jobs:
     steps:
       - checkout
 
-      -run:
+      - run:
         name: Install yarn
         command: |
           npm install --global -y yarn
 
-      -run:
+      - run:
         name: Build app
         command: |
           yarn
           yarn build
 
 
-      -run:
+      - run:
         name: Test app
         command: |
           yarn test
