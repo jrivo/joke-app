@@ -12,7 +12,7 @@ jobs:
       - run:
         name: Install yarn
         command: |
-          npm install --global -y yarn
+          npm install --global yarn
 
       - run:
         name: Build app
