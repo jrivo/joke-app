@@ -26,6 +26,11 @@ jobs:
           paths:
             - node_modules
 
+      - persist_to_workspace:
+          paths:
+            - "."
+          root: ~/project
+
   test:
     docker:
       - image: node:16
@@ -33,7 +38,9 @@ jobs:
     parallelism: 10
 
     steps:
-      - checkout
+
+    - attach_workspace:
+        at: ~/project/
 
       - restore_cache:
           name: Restore yarn Package cache
@@ -44,3 +51,12 @@ jobs:
           name: Test app
           command: |
             yarn test
+
+
+workflows:
+  build:
+    jobs:
+      - build
+      - test
+          requires:
+            - build
