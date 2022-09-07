@@ -39,7 +39,7 @@ jobs:
 
     steps:
 
-    - attach_workspace:
+      - attach_workspace:
         at: ~/project/
 
       - restore_cache:
